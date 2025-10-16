@@ -100,15 +100,6 @@ npm install qinn
 
 ---
 
-## 🧰 Utility Methods
-
-| **Method** | **Description**           | **Parameters** | **Returns**     | **Example** |
-| ---------- | ------------------------- | -------------- | --------------- | ----------- |
-| `take(n)`  | Takes first `n` elements. | `n: number`    | `Enumerable<T>` | `.take(3)`  |
-| `skip(n)`  | Skips first `n` elements. | `n: number`    | `Enumerable<T>` | `.skip(2)`  |
-
----
-
 ## 🔄 Conversion [see examples](examples/conversion.ts)
 
 | **Method**                                             | **Description**                     | **Returns**    | **Example**                  |
