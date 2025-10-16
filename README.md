@@ -22,6 +22,7 @@ This library provides a clean, fluent API to manipulate collections, similar to 
 
 ```bash
 npm install qinn
+```
 
 ## 🚀 Creation Methods
 
