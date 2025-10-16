@@ -1,17 +1,25 @@
 {
   "name": "qinn",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A lightwight LINQ-style Enumerable for Javascript and Typescript",
+  "main": "./dist/qinn.js",
+  "types": "./dist/qinn.d.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "jest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["linq", "enumerable", "typescript", "array", "query"],
+  "author": "FelipeMCassiano",
+  "license": "MIT",
   "type": "commonjs",
+  "files": [
+    "dist/**/*"
+  ],
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^24.7.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.5",
     "typescript": "^5.9.3"
   }
 }
