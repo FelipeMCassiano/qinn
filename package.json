@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "keywords": ["linq", "enumerable", "typescript", "array", "query"],
-  "author": "FelipeMCassiano",
+  "author": "felipecassiano",
   "license": "MIT",
   "type": "commonjs",
   "files": [
