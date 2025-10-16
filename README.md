@@ -24,7 +24,7 @@ This library provides a clean, fluent API to manipulate collections, similar to 
 npm install qinn
 ```
 
-## 🚀 Creation Methods
+## 🚀 Creation Methods [see examples](examples/creation.ts)
 
 | **Method**                   | **Description**                                              | **Parameters**                              | **Returns**          | **Example**                             |
 | ---------------------------- | ------------------------------------------------------------ | ------------------------------------------- | -------------------- | --------------------------------------- |
@@ -44,7 +44,7 @@ npm install qinn
 
 ---
 
-## 🧠 Transformation Methods
+## 🧠 Transformation Methods [see examples](examples/transformation.ts)
 
 | **Method**                    | **Description**           | **Parameters**                | **Returns**     | **Example**                        |
 | ----------------------------- | ------------------------- | ----------------------------- | --------------- | ---------------------------------- |
@@ -59,7 +59,7 @@ npm install qinn
 
 ---
 
-## 🧩 Uniqueness
+## 🧩 Uniqueness [see examples](examples/uniqueness.ts)
 
 | **Method**                | **Description**            | **Parameters**            | **Returns**     | **Example**            |
 | ------------------------- | -------------------------- | ------------------------- | --------------- | ---------------------- |
@@ -68,7 +68,7 @@ npm install qinn
 
 ---
 
-## ⚡ Memoization
+## ⚡ Memoization [see examples](examples/memoization.ts)
 
 | **Method**                       | **Description**                       | **Parameters**                                        | **Returns**              | **Example**                          |
 | -------------------------------- | ------------------------------------- | ----------------------------------------------------- | ------------------------ | ------------------------------------ |
@@ -77,7 +77,7 @@ npm install qinn
 
 ---
 
-## 📊 Aggregation Methods
+## 📊 Aggregation Methods [see examples](examples/aggregation.ts)
 
 | **Method**           | **Description**                  | **Parameters**                 | **Returns**      | **Example**      |
 | -------------------- | -------------------------------- | ------------------------------ | ---------------- | ---------------- |
@@ -89,7 +89,7 @@ npm install qinn
 
 ---
 
-## 🔍 Filtering & Existence
+## 🔍 Filtering & Existence [see examples](examples/filtering.ts)
 
 | **Method**          | **Description**                   | **Parameters**                 | **Returns**      | **Example**       |
 | ------------------- | --------------------------------- | ------------------------------ | ---------------- | ----------------- |
@@ -109,7 +109,7 @@ npm install qinn
 
 ---
 
-## 🔄 Conversion
+## 🔄 Conversion [see examples](examples/conversion.ts)
 
 | **Method**                                             | **Description**                     | **Returns**    | **Example**                  |
 | ------------------------------------------------------ | ----------------------------------- | -------------- | ---------------------------- |
