@@ -1,4 +1,4 @@
-# Qinn.ts
+# Qinn
 
 A **TypeScript LINQ-inspired utility** for functional-style data querying and transformation over **iterables** and **async iterables**.
 
