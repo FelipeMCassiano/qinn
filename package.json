@@ -1,9 +1,16 @@
 {
   "name": "qinn",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A lightwight LINQ-style Enumerable for Javascript and Typescript",
   "main": "./dist/qinn.js",
   "types": "./dist/qinn.d.js",
+ "exports": {
+    ".": {
+      "import": "./dist/qinn.js",
+      "require": "./dist/qinn.js",
+      "types": "./dist/qinn.d.ts"
+    }
+  },
   "scripts": {
     "build": "tsc",
     "test": "jest"
