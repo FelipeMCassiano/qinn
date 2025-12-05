@@ -1,6 +1,6 @@
 {
   "name": "qinn",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A lightwight LINQ-style Enumerable for Javascript and Typescript",
   "main": "./dist/qinn.js",
   "types": "./dist/qinn.d.js",

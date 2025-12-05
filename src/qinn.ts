@@ -240,7 +240,9 @@ export class Enumerable<T> implements Iterable<T>, AsyncIterable<T> {
      * const users = Enumerable.from([{ name: 'John' }, { name: 'Jane' }]);
      * const names = users.select(user => user.name); // ['John', 'Jane']
      */
-    select<S extends PrimitiveOrSelf<T>>(mapper: (obj: T) => S): Enumerable<S> {
+    select<S extends PrimitiveOrSelf<T> | unknown>(
+        mapper: (obj: T) => S
+    ): Enumerable<S> {
         const self = this;
         function* generator() {
             for (const item of self) {
@@ -795,5 +797,98 @@ export class Enumerable<T> implements Iterable<T>, AsyncIterable<T> {
      */
     toSet(): Set<T> {
         return new Set(this);
+    }
+
+    /**
+     * Produces the set union of this sequence and another sequence.
+     * Returns all distinct elements that appear in either sequence, preserving
+     * the order in which they first appear.
+     *
+     * @template S - The type of the comparison key returned by the key selector
+     * @param enumerable - The sequence to union with the current sequence
+     * @param keySelector - Optional function to project each element to a comparison key.
+     *                      When provided, uniqueness is determined by this key; otherwise,
+     *                      strict equality (`===`) on the element itself is used.
+     * @returns A new enumerable that contains the distinct elements from both sequences
+     *
+     * @example
+     * const first = Enumerable.from([1, 2, 3]);
+     * const second = Enumerable.from([3, 4, 5]);
+     * const union = first.union(second);
+     * // [1, 2, 3, 4, 5]
+     * @remarks
+     * This operator is set-like: it removes duplicates across both sequences.
+     *
+     * If you want simple concatenation without deduplication, use {@link concat}.
+     */
+    union<S = T>(
+        enumerable: Enumerable<T>,
+        keySelector?: (obj: T) => S
+    ): Enumerable<T | S> {
+        const self = this;
+
+        function* generator() {
+            const seen = new Set<T | S>();
+            for (const item of self) {
+                const key = keySelector ? keySelector(item) : item;
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    yield item;
+                }
+            }
+            for (const item of enumerable) {
+                const key = keySelector ? keySelector(item) : item;
+
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    yield item;
+                }
+            }
+        }
+
+        return new Enumerable(generator());
+    }
+
+    /**
+     * Produces the set intersection of this sequence and another sequence.
+     * Returns the distinct elements that appear in both sequences, preserving
+     * the order in which they first appear in the current sequence.
+     *
+     * @template S - The type of the comparison key returned by the key selector
+     * @param enumerable - The sequence to intersect with the current sequence
+     * @param keySelector - Optional function to project each element to a comparison key.
+     *                      When provided, equality is determined by this key; otherwise,
+     *                      strict equality (`===`) on the element itself is used.
+     * @returns A new enumerable that contains the common elements of both sequences
+     *
+     * @example
+     * const first = Enumerable.from([1, 2, 3, 4]);
+     * const second = Enumerable.from([3, 4, 5, 6]);
+     * const common = first.intersect(second);
+     * // [3, 4]
+     *
+     * @remarks
+     * This operator is set-like: it returns distinct common elements based on
+     * the chosen equality rule (element or key). If you need all matches,
+     * including duplicates from the first sequence, consider a custom `where`
+     * with `contains` instead.
+     */
+    intersect<S = T>(
+        enumerable: Enumerable<T>,
+        keySelector?: (obj: T) => S
+    ): Enumerable<T> {
+        const self = this;
+        function* generator() {
+            const set: Set<S | T> = enumerable.toSet();
+
+            for (const item of self) {
+                const key = keySelector ? keySelector(item) : item;
+                if (set.has(key)) {
+                    yield item;
+                }
+            }
+        }
+
+        return new Enumerable(generator());
     }
 }

@@ -39,6 +39,19 @@ describe("Filtering and Selection", () => {
 
         expect(names).toEqual(["Felipe", "Lucas", "Ana"]);
     });
+
+    test("select() should map elements into new object", () => {
+        const personWithDogAge = Enumerable.from(persons)
+            .select((p) => ({ dogAge: p.age * 7, name: p.name }))
+            .toArray();
+
+        expect(personWithDogAge).toEqual([
+            { name: "Felipe", dogAge: 147 },
+            { name: "Lucas", dogAge: 175 },
+            { name: "Ana", dogAge: 133 },
+        ]);
+    });
+
     test("distinct() should remove duplicates", () => {
         const result = Enumerable.from([1, 2, 2, 3, 3, 3]).distinct().toArray();
 
@@ -67,6 +80,24 @@ describe("Filtering and Selection", () => {
         ];
         const twoElm = Enumerable.from(persons).take(2).toArray();
         expect(twoElm).toEqual(persons.slice(0, 2));
+    });
+
+    test("union() should unify ditinct items ", () => {
+        const nums1 = Enumerable.from([1, 2, 4]);
+        const nums2 = Enumerable.from([3, 4, 5]);
+
+        const union = nums1.union(nums2).toArray();
+
+        expect(union).toEqual([1, 2, 4, 3, 5]);
+    });
+
+    test("intersect() should take only elements that is in both enumerables", () => {
+        const nums1 = Enumerable.from([1, 2, 4]);
+        const nums2 = Enumerable.from([2, 4, 5, 7]);
+
+        const intersect = nums1.intersect(nums2).toArray();
+
+        expect(intersect).toEqual([2, 4]);
     });
 });
 
