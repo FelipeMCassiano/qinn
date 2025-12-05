@@ -59,13 +59,14 @@ npm install qinn
 
 ---
 
-## 🧩 Uniqueness [see examples](examples/uniqueness.ts)
+## 🧩 Set Operations [see examples](examples/set-operation.ts)
 
 | **Method**                | **Description**            | **Parameters**            | **Returns**     | **Example**            |
 | ------------------------- | -------------------------- | ------------------------- | --------------- | ---------------------- |
 | `distinct()`              | Removes duplicates.        | —                         | `Enumerable<T>` | `.distinct()`          |
 | `distinctBy(keySelector)` | Removes duplicates by key. | `keySelector: (obj:T)=>S` | `Enumerable<T>` | `.distinctBy(x=>x.id)` |
-
+| `intersect(enumerable, keySelector?)` | produces the set intersection | `enumerable: Enumerable<T>`, `keySelector: (obj:T) => S` | `Enumerable<T>` | `.intersect(e)` |
+| `union(enumerable, keySelector?)` | produces the set union | `enumerable: Enumerable<T>`, `keySelector: (obj:T) => S` | `Enumerable<T>` | `.union(e)`| 
 ---
 
 ## ⚡ Memoization [see examples](examples/memoization.ts)
